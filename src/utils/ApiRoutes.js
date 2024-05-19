@@ -1,4 +1,4 @@
-const host = "https://backend-nu-eight-44.vercel.app/";
+const host = "https://backend-nu-eight-44.vercel.app";
 
 export const signUpRoute = `${host}/api/auth/signup`;
 export const loginRoute = `${host}/api/auth/login`;
