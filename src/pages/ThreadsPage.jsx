@@ -32,6 +32,9 @@ export default function ThreadPage() {
     try {
       const response = await axios.get(getAllThreadsRoute, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set
+        },
       });
       const uniqueCategories = Array.from(
         new Set(response.data.threads.map((thread) => thread.category))
@@ -49,6 +52,9 @@ export default function ThreadPage() {
     try {
       const response = await axios.get(getAuthorsRoute, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set
+        },
       });
       setAuthors(response.data.map((author) => author.username));
     } catch (error) {
@@ -134,6 +140,9 @@ export default function ThreadPage() {
         },
         {
           withCredentials: true,
+          headers: {
+            "Content-Type": "application/json", // Ensure the content type is set
+          },
         }
       );
       fetchThreads();

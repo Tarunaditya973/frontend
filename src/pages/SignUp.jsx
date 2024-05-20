@@ -48,6 +48,9 @@ const SignUp = () => {
           },
           {
             withCredentials: true, // Include credentials
+            headers: {
+              "Content-Type": "application/json", // Ensure the content type is set
+            },
           }
         );
         if (!response.data.status) {

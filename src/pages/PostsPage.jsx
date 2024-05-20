@@ -62,6 +62,9 @@ export default function PostPage() {
     try {
       await axios.post(createPostRoute, formData, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set
+        },
       });
       fetchPosts();
     } catch (err) {
@@ -78,7 +81,12 @@ export default function PostPage() {
           commentId: commentId,
           postId: postId,
         },
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json", // Ensure the content type is set
+          },
+        }
       );
       setReplyText((prev) => ({ ...prev, [commentId]: "" })); // Resetting the textarea after submission
       setShowReplyForm((prev) => ({ ...prev, [commentId]: false }));
@@ -96,7 +104,12 @@ export default function PostPage() {
           content: replyTextForPost[postId],
           postId: postId,
         },
-        { withCredentials: true }
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json", // Ensure the content type is set
+          },
+        }
       );
       setReplyTextForPost((prev) => ({ ...prev, [postId]: "" })); // Resetting the text area after submission
       setIsReplying((prev) => ({ ...prev, [postId]: false })); // Resetting the text area after submission
@@ -126,6 +139,9 @@ export default function PostPage() {
     try {
       const response = await axios.get(getAuthorsRoute, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set
+        },
       });
       setAuthors(response.data.map((author) => author.username));
     } catch (error) {
@@ -155,6 +171,9 @@ export default function PostPage() {
     try {
       const response = await axios.get(getPostsRoute(threadId), {
         withCredentials: true,
+        headers: {
+          "Content-Type": "application/json", // Ensure the content type is set
+        },
       });
       setPosts(response.data);
     } catch (err) {

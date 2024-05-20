@@ -40,6 +40,9 @@ export default function Login() {
         },
         {
           withCredentials: true, // Include credentials
+          headers: {
+            "Content-Type": "application/json", // Ensure the content type is set
+          },
         }
       );
 
