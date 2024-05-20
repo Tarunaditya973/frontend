@@ -1,4 +1,4 @@
-const host = "https://backend-psi-self.vercel.app";
+const host = "https://backend-smoky-psi-15.vercel.app/";
 
 export const signUpRoute = `${host}/api/auth/signup`;
 export const loginRoute = `${host}/api/auth/login`;
